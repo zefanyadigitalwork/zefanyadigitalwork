@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#20211f">
+    <title>Admin — Zefanya Digital Work</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+    <script type="module" src="admin.js"></script>
+  </head>
+  <body class="admin-body">
+    <main class="admin-login" id="admin-login">
+      <section class="login-card">
+        <a class="admin-brand login-brand" href="index.html">
+          <img src="public/img/zefanyalogo.png" alt="Zefanya Digital Work">
+          <span>CONTENT STUDIO<small>ADMIN PORTAL</small></span>
+        </a>
+        <span class="admin-kicker">AKSES KHUSUS ADMIN</span>
+        <h1>Selamat datang<br><em>kembali.</em></h1>
+        <p>Masuk menggunakan akun admin yang dibuat di Supabase.</p>
+        <form id="login-form" class="login-form">
+          <label class="field">Email<input id="login-email" type="email" autocomplete="username" required placeholder="admin@domain.com"></label>
+          <label class="field">Password<input id="login-password" type="password" autocomplete="current-password" required></label>
+          <p class="login-error" id="login-error" role="alert"></p>
+          <button class="button button-dark login-submit" type="submit">Masuk ke portal <span>↗</span></button>
+        </form>
+        <a class="login-back" href="index.html">← Kembali ke website</a>
+      </section>
+    </main>
+    <div class="admin-layout" id="admin-layout" hidden>
+      <aside class="admin-sidebar">
+        <a class="admin-brand" href="index.html">
+          <img src="public/img/zefanyalogo.png" alt="">
+          <span>CONTENT STUDIO<small>ADMIN PORTAL</small></span>
+        </a>
+        <nav class="admin-nav" aria-label="Menu admin">
+          <button class="admin-nav-item active" data-panel="overview" type="button"><span>⌂</span> Ringkasan</button>
+          <button class="admin-nav-item" data-panel="projects" type="button"><span>▦</span> Project</button>
+          <button class="admin-nav-item" data-panel="slides" type="button"><span>◫</span> Slide beranda</button>
+          <button class="admin-nav-item" data-panel="content" type="button"><span>≡</span> Konten halaman</button>
+        </nav>
+        <div class="sidebar-bottom">
+          <a href="index.html">← Lihat website</a>
+          <span>LOCAL CONTENT MANAGER</span>
+        </div>
+      </aside>
+
+      <main class="admin-main">
+        <header class="admin-topbar">
+          <div><span class="admin-kicker">ZEFANYA DIGITAL WORK</span><h1 id="page-title">Ringkasan</h1></div>
+          <div class="topbar-actions"><button class="button button-light" id="logout-button" type="button">Keluar</button><a class="visit-site" href="index.html" target="_blank" rel="noopener noreferrer">Buka website <span>↗</span></a></div>
+        </header>
+
+        <div class="storage-notice" role="note">
+          <span>i</span>
+          <p><strong>Terhubung ke Supabase.</strong> Perubahan tersimpan bersama di server dan dapat dilihat pengunjung website.</p>
+        </div>
+        <p class="admin-status" id="admin-status" role="status" aria-live="polite"></p>
+
+        <section class="admin-panel active" id="panel-overview">
+          <div class="welcome-card">
+            <div><span class="admin-kicker">SELAMAT DATANG DI RUANG KERJA</span><h2>Kelola website<br><em>dengan mudah.</em></h2><p>Perbarui project, slide beranda, dan informasi di halaman publik.</p></div>
+            <span class="welcome-mark">✳</span>
+          </div>
+          <div class="stats-grid">
+            <article class="stat-card"><span>PROJECT AKTIF</span><strong id="project-total">0</strong><small>Tampil di halaman Project</small></article>
+            <article class="stat-card"><span>SLIDE BERANDA</span><strong id="slide-total">0</strong><small>Konten carousel halaman Home</small></article>
+            <article class="stat-card"><span>HALAMAN KONTEN</span><strong>4</strong><small>Home · About · Project · Contact</small></article>
+          </div>
+          <div class="overview-bottom">
+            <article class="admin-card quick-actions">
+              <span class="admin-kicker">AKSES CEPAT</span>
+              <h3>Apa yang ingin Anda kelola?</h3>
+              <button type="button" class="quick-action" data-open-panel="projects"><span>01</span><span><strong>Kelola project</strong><small>Tambah, edit, atau hapus item portfolio</small></span><b>↗</b></button>
+              <button type="button" class="quick-action" data-open-panel="content"><span>02</span><span><strong>Ubah teks halaman</strong><small>Perbarui copy, kontak, dan footer</small></span><b>↗</b></button>
+            </article>
+            <article class="admin-card backup-card">
+              <span class="admin-kicker">DATA WEBSITE</span><h3>Backup konten</h3>
+              <p>Unduh cadangan seluruh konten atau pulihkan dari file JSON.</p>
+              <div class="button-row"><button type="button" class="button button-dark" id="export-data">Ekspor JSON</button><label class="button button-light" for="import-data">Impor JSON</label><input id="import-data" type="file" accept="application/json,.json" hidden></div>
+              <button type="button" class="text-button danger-text" id="reset-data">Kembalikan konten awal</button>
+            </article>
+          </div>
+        </section>
+
+        <section class="admin-panel" id="panel-projects">
+          <div class="panel-heading"><div><span class="admin-kicker">PORTFOLIO WEBSITE</span><h2>Semua project</h2><p>Project yang aktif akan tampil di halaman Project publik.</p></div><button class="button button-dark" id="add-project" type="button">＋ Tambah project</button></div>
+          <div class="table-toolbar"><label class="search-box"><span>⌕</span><input id="project-search" type="search" placeholder="Cari project..." aria-label="Cari project"></label><span id="project-count" class="result-count"></span></div>
+          <div class="admin-card table-card"><div class="table-scroll"><table><thead><tr><th>PROJECT</th><th>KATEGORI</th><th>TAUTAN GAMBAR</th><th>AKSI</th></tr></thead><tbody id="project-rows"></tbody></table></div><p class="empty-state" id="project-empty" hidden>Belum ada project. Tambahkan project pertama Anda.</p></div>
+        </section>
+
+        <section class="admin-panel" id="panel-slides">
+          <div class="panel-heading"><div><span class="admin-kicker">HALAMAN HOME</span><h2>Slide beranda</h2><p>Atur gambar utama dan teks carousel pada hero website.</p></div><button class="button button-dark" id="add-slide" type="button">＋ Tambah slide</button></div>
+          <div class="slide-list" id="slide-list"></div>
+          <p class="empty-state admin-card" id="slide-empty" hidden>Belum ada slide. Tambahkan slide untuk mengisi carousel di halaman Home.</p>
+        </section>
+
+        <section class="admin-panel" id="panel-content">
+          <div class="panel-heading"><div><span class="admin-kicker">PENGATURAN WEBSITE</span><h2>Konten halaman</h2><p>Perbarui teks dan informasi kontak yang dipakai di halaman publik.</p></div></div>
+          <form id="content-form" class="content-groups"></form>
+          <div class="content-savebar"><span>Perubahan akan langsung digunakan oleh halaman publik di browser ini.</span><button class="button button-dark" type="submit" form="content-form">Simpan perubahan</button></div>
+        </section>
+      </main>
+    </div>
+
+    <dialog class="editor-dialog" id="editor-dialog">
+      <form id="editor-form" method="dialog">
+        <div class="dialog-heading"><div><span class="admin-kicker" id="dialog-kicker">PROJECT PORTFOLIO</span><h2 id="dialog-title">Tambah project</h2></div><button class="icon-button" type="button" id="close-dialog" aria-label="Tutup">×</button></div>
+        <input type="hidden" id="record-id">
+        <div class="form-grid" id="project-fields">
+          <label class="field full-field">Nama project<input id="field-title" required maxlength="80" placeholder="Contoh: Identitas Visual Brand"></label>
+          <label class="field full-field">Kategori / layanan<input id="field-category" required maxlength="120" placeholder="Visual identity · Art direction"></label>
+          <label class="field full-field">URL gambar utama<input id="field-image" type="url" required placeholder="https://..."></label>
+          <label class="field full-field">Teks alternatif gambar<input id="field-alt" required maxlength="180"></label>
+          <label class="field full-field">Deskripsi singkat<textarea id="field-description" required rows="3" maxlength="300"></textarea></label>
+          <label class="field full-field">Deskripsi detail<textarea id="field-copy" required rows="4" maxlength="1200"></textarea></label>
+          <label class="field full-field">URL galeri (satu per baris)<textarea id="field-gallery" rows="3" placeholder="https://..."></textarea></label>
+        </div>
+        <div class="form-grid" id="slide-fields" hidden>
+          <label class="field full-field">URL gambar<input id="slide-image" type="url" required placeholder="https://..."></label>
+          <label class="field full-field">Teks alternatif gambar<input id="slide-alt" required maxlength="180"></label>
+          <label class="field full-field">Label slide<input id="slide-label" required maxlength="60" placeholder="Visual identity"></label>
+          <label class="field full-field">Judul slide<input id="slide-title" required maxlength="90"></label>
+          <label class="field full-field">Kategori / tahun<input id="slide-type" required maxlength="80" placeholder="Brand identity / 2025"></label>
+        </div>
+        <p class="form-error" id="form-error" role="alert"></p>
+        <div class="dialog-actions"><button class="button button-light" type="button" id="cancel-dialog">Batal</button><button class="button button-dark" type="submit" id="save-record">Simpan project</button></div>
+      </form>
+    </dialog>
+  </body>
+</html>

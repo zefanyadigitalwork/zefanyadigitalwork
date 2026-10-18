@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f1eb">
+    <meta name="description" content="Zefanya Digital Work — partner kreatif untuk desain, multimedia, teknologi, dan solusi digital.">
+    <title>Zefanya Digital Work — Creative Digital Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Zefanya Digital Work, beranda">
+        <img class="brand-logo" src="public/img/zefanyalogo.png" alt="Zefanya Digital Work">
+        <span class="brand-caption"><i></i> Creative studio · Bekasi</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="main-navigation">
+        <span></span><span></span><span class="menu-label">Menu</span>
+      </button>
+      <nav class="main-nav" id="main-navigation" aria-label="Navigasi utama">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Project</a>
+        <a class="nav-contact" href="contact.html">Let's talk <span>↗</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section-wrap" id="home" aria-label="Karya pilihan">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> Creative digital agency · Indonesia</p>
+          <h1>Ideas made<br>to <em>move</em> you.</h1>
+          <p class="hero-intro" data-cms="home.intro">Kami mengubah ide menjadi karya digital yang berkesan, fungsional, dan dibuat untuk berkembang.</p>
+          <a class="text-link" href="projects.html">Jelajahi karya kami <span>↘</span></a>
+          <div class="hero-controls">
+            <button class="slide-arrow" type="button" data-slide="prev" aria-label="Slide sebelumnya">←</button>
+            <span class="slide-count"><span id="slide-current">01</span> <i>/</i> 03</span>
+            <button class="slide-arrow" type="button" data-slide="next" aria-label="Slide berikutnya">→</button>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-image-frame">
+            <img id="hero-image" src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&amp;fit=crop&amp;w=1500&amp;q=85" alt="Eksplorasi desain visual dengan warna-warna berani">
+            <div class="image-overlay"></div>
+            <div class="hero-image-note"><span>01 / 03</span><span id="slide-label">Visual identity</span></div>
+          </div>
+          <span class="hero-sticker">CREATIVE<br>BY NATURE <b>✳</b></span>
+          <div class="hero-caption"><span id="slide-title">A bold point of view</span><span id="slide-type">Brand identity / 2025</span></div>
+        </div>
+        <div class="hero-index">01 — 03</div>
+      </section>
+
+      <section class="home-cta">
+        <p class="eyebrow"><span class="eyebrow-line"></span> Dari ide sampai jadi</p>
+        <p>Strategi yang jernih.<br><em>Eksekusi yang berani.</em></p>
+        <div class="home-cta-links">
+          <a class="text-link" href="about.html">Kenali kami <span>↗</span></a>
+          <a class="text-link" href="projects.html">Lihat project <span>↗</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-cta">
+        <div><span class="footer-kicker"><i></i> Punya project dalam pikiran?</span><h2>Mari wujudkan <em data-cms="footer.cta">bersama.</em></h2></div>
+        <a class="footer-cta-button" href="https://wa.me/6285162744708" data-cms-href="contact.whatsappLink" target="_blank" rel="noopener noreferrer">Ngobrol via WhatsApp <span>↗</span></a>
+      </div>
+      <div class="footer-main">
+        <div class="footer-about">
+          <a class="brand footer-brand" href="index.html"><img class="brand-logo" src="public/img/zefanyalogo.png" alt="Zefanya Digital Work"></a>
+          <p data-cms="footer.about">Ide baik layak diwujudkan dengan baik. Kami siap membantu bisnis Anda melangkah lebih jauh.</p>
+        </div>
+        <div class="footer-links"><span class="footer-label">JELAJAHI</span><a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Project</a><a href="contact.html">Contact</a></div>
+        <div class="footer-contact"><span class="footer-label">SAPA KAMI</span><a href="mailto:Creativestech79@gmail.com" data-cms-href="contact.emailHref"><span data-cms="contact.email">Creativestech79@gmail.com</span> ↗</a><a href="https://wa.me/6285162744708" data-cms-href="contact.whatsappLink" target="_blank" rel="noopener noreferrer"><span data-cms="contact.phone">0851 6274 4708</span> · WhatsApp ↗</a><p data-cms="contact.address">Jatikramat, Jatiasih Bekasi 17421</p></div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year"></span> Zefanya Digital Work</span><span>Dibuat dengan ide dan tujuan <b>✳</b></span><a href="contact.html">Temukan kami <span>↗</span></a></div>
+    </footer>
+  </body>
+</html>
