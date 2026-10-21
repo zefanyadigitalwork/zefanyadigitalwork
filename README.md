@@ -5,8 +5,8 @@ Website statis multi-halaman dengan portal admin, Supabase sebagai CMS/auth, dan
 ## Siapkan Supabase
 
 1. Buat project di [Supabase](https://supabase.com/dashboard).
-2. Buka **SQL Editor**, lalu jalankan seluruh isi `supabase/migrations/20261018000000_initial_cms.sql`.
-   Migration ini membuat tabel CMS, mengisi konten awal, dan mengaktifkan Row Level Security (RLS).
+2. Buka **SQL Editor**, lalu jalankan seluruh isi `supabase/migrations/20261018000000_initial_cms.sql` dari repository ini.
+   Migration ini membuat tabel CMS dan `admin_users`, mengisi konten awal, serta mengaktifkan Row Level Security (RLS). Jalankan sekali pada project Supabase yang digunakan website; jika login menampilkan `Could not find the table 'public.admin_users'`, jalankan migration ini lalu muat ulang portal admin.
 3. Di **Authentication → Providers → Email**, nonaktifkan **Allow new users to sign up**.
 4. Di **Authentication → URL Configuration**, isi Site URL dengan domain production Vercel Anda. Tambahkan alamat localhost dan domain preview Vercel ke daftar Redirect URLs jika akan menggunakan alur email Supabase.
 5. Di **Authentication → Users**, buat user admin secara manual dan konfirmasikan alamat email jika diminta. Gunakan password unik yang hanya diketahui admin.

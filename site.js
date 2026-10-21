@@ -109,6 +109,25 @@ let state = clone(defaults);
 const yearElement = document.querySelector("#year");
 if (yearElement) yearElement.textContent = new Date().getFullYear();
 
+const themeSelect = document.querySelector(".theme-select");
+if (themeSelect) {
+  const themeColors = {
+    "soft-light": "#f4f1eb",
+    light: "#ffffff",
+    "soft-dark": "#292a27",
+    dark: "#171816"
+  };
+  const currentTheme = document.documentElement.dataset.theme || "soft-light";
+  themeSelect.value = currentTheme;
+  const themeColor = document.querySelector('meta[name="theme-color"]');
+  if (themeColor) themeColor.content = themeColors[currentTheme];
+  themeSelect.addEventListener("change", () => {
+    document.documentElement.dataset.theme = themeSelect.value;
+    localStorage.setItem("zefanya-theme", themeSelect.value);
+    if (themeColor) themeColor.content = themeColors[themeSelect.value];
+  });
+}
+
 const menuToggle = document.querySelector(".menu-toggle");
 const mainNav = document.querySelector(".main-nav");
 if (menuToggle && mainNav) {

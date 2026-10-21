@@ -6,6 +6,7 @@
     <meta name="theme-color" content="#f4f1eb">
     <meta name="description" content="Zefanya Digital Work — partner kreatif untuk desain, multimedia, teknologi, dan solusi digital.">
     <title>Zefanya Digital Work — Creative Digital Agency</title>
+    <script>const savedTheme = localStorage.getItem("zefanya-theme"); if (["light", "soft-light", "soft-dark", "dark"].includes(savedTheme)) document.documentElement.dataset.theme = savedTheme;</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -26,6 +27,7 @@
         <a href="about.html">About</a>
         <a href="projects.html">Project</a>
         <a class="nav-contact" href="contact.html">Let's talk <span>↗</span></a>
+        <label class="theme-control"><span>Tema</span><select class="theme-select" aria-label="Pilih tema tampilan"><option value="soft-light">Soft light</option><option value="light">Light</option><option value="soft-dark">Soft dark</option><option value="dark">Dark</option></select></label>
       </nav>
     </header>
 
