@@ -1,7 +1,7 @@
 import { resolve } from "node:path";
 import { defineConfig, loadEnv } from "vite";
 
-const pages = ["index", "about", "projects", "project", "contact", "admin"];
+const pages = ["index", "about", "projects", "project", "contact", "page", "admin"];
 
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd(), "");

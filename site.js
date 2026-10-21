@@ -2,20 +2,94 @@ import { createClient } from "@supabase/supabase-js";
 
 const defaults = {
   content: {
+    "header.logo": "public/img/zefanyalogo.png",
+    "header.logoAlt": "Zefanya Digital Work",
+    "header.caption": "Creative studio · Bekasi",
+    "header.navLabel": "Navigasi utama",
+    "header.menuLabel": "Menu",
+    "header.home": "Home",
+    "header.about": "About",
+    "header.projects": "Project",
+    "header.contact": "Let's talk",
+    "home.eyebrow": "Creative digital agency · Indonesia",
+    "home.headingLead": "Ideas made",
+    "home.headingMiddle": "to",
+    "home.headingAccent": "move",
+    "home.headingEnd": "you.",
     "home.intro": "Kami mengubah ide menjadi karya digital yang berkesan, fungsional, dan dibuat untuk berkembang.",
+    "home.projectLink": "Jelajahi karya kami",
+    "home.ctaEyebrow": "Dari ide sampai jadi",
+    "home.ctaLineOne": "Strategi yang jernih.",
+    "home.ctaLineTwo": "Eksekusi yang berani.",
+    "home.ctaAboutLink": "Kenali kami",
+    "home.ctaProjectsLink": "Lihat project",
+    "about.eyebrow": "Sedikit tentang kami",
+    "about.headingLead": "Partner kreatif",
+    "about.headingMiddle": "untuk",
+    "about.headingAccent": "langkah",
+    "about.headingEnd": "berikutnya.",
     "about.lead": "Kami menghubungkan desain, teknologi, dan cerita untuk membuat bisnis bergerak maju.",
+    "about.storyEyebrow": "Siapa kami",
+    "about.storyHeadingLead": "Ide baik layak",
+    "about.storyHeadingAccent": "diwujudkan.",
     "about.storyLead": "Zefanya Digital Work membantu brand dan bisnis hadir lebih kuat di dunia digital.",
     "about.storyBody": "Kami menggabungkan ide, desain, dan teknologi untuk menghasilkan solusi yang bukan hanya terlihat menarik, tetapi juga benar-benar bekerja. Dari identitas visual hingga sistem digital, setiap detail dibuat dengan tujuan.",
     "about.storyNote": "Konten ini adalah placeholder yang bisa disesuaikan dengan cerita, visi, dan perjalanan bisnis Anda.",
+    "about.storyImage": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1600&q=85",
+    "about.storyImageAlt": "Ruang kerja kreatif dengan suasana hangat",
+    "about.storyLink": "Lihat layanan kami",
+    "about.approachEyebrow": "Cara kami bekerja",
+    "about.approachNumber": "01 / APPROACH",
+    "about.valueOne": "Dengar dan pahami kebutuhan",
+    "about.valueTwo": "Rancang solusi yang tepat",
+    "about.valueThree": "Wujudkan dengan detail",
+    "about.ctaEyebrow": "Ayo berkolaborasi",
+    "about.ctaLineOne": "Punya rencana",
+    "about.ctaLineTwo": "yang ingin diwujudkan?",
+    "about.ctaLink": "Hubungi kami",
+    "projects.eyebrow": "Yang bisa kami kerjakan",
+    "projects.headingLead": "Ruang untuk",
+    "projects.headingAccent": "ide besar.",
     "projects.lead": "Jelajahi layanan dan portofolio kami. Pilih kategori untuk melihat halaman detail dan contoh karya.",
+    "projects.ctaEyebrow": "Mulai project Anda",
+    "projects.ctaLineOne": "Ide Anda berikutnya",
+    "projects.ctaLineTwo": "dimulai dari sini.",
+    "projects.ctaLink": "Hubungi kami",
+    "contact.eyebrow": "Mari mulai sesuatu",
+    "contact.headingLead": "Ada ide?",
+    "contact.headingAccent": "Kami siap.",
     "contact.lead": "Ceritakan apa yang sedang Anda rencanakan. Kami akan membantu menemukan cara terbaik untuk mewujudkannya.",
+    "contact.sectionEyebrow": "Kontak kami",
     "contact.email": "Creativestech79@gmail.com",
     "contact.emailHref": "mailto:Creativestech79@gmail.com",
     "contact.phone": "0851 6274 4708",
     "contact.whatsappLink": "https://wa.me/6285162744708",
     "contact.address": "Jl. H. Abdullah No.77, RT.01, RW.05, Kelurahan Jatikramat, Kecamatan Jatiasih, Bekasi 17421",
+    "contact.whatsappLabel": "WHATSAPP SAJA",
+    "contact.locationLabel": "LOKASI",
+    "contact.mapTitle": "Peta lokasi Zefanya Digital Work",
+    "contact.mapLabel": "Zefanya Digital Work",
+    "project.backLink": "Kembali ke semua project",
+    "project.kicker": "Zefanya Digital Work / Portfolio",
+    "project.aboutEyebrow": "Tentang layanan",
+    "project.headingLead": "Dibuat dengan tujuan.",
+    "project.headingAccent": "Dikerjakan dengan detail.",
+    "project.contactLink": "Diskusikan project Anda",
+    "project.nextEyebrow": "Lebih banyak hal baik",
+    "project.nextLink": "Lihat semua project",
+    "footer.kicker": "Punya project dalam pikiran?",
     "footer.about": "Ide baik layak diwujudkan dengan baik. Kami siap membantu bisnis Anda melangkah lebih jauh.",
-    "footer.cta": "bersama."
+    "footer.ctaHeading": "Mari wujudkan",
+    "footer.cta": "bersama.",
+    "footer.whatsappLink": "Ngobrol via WhatsApp",
+    "footer.exploreLabel": "JELAJAHI",
+    "footer.homeLink": "Home",
+    "footer.aboutLink": "About",
+    "footer.projectsLink": "Project",
+    "footer.contactLink": "Contact",
+    "footer.contactLabel": "SAPA KAMI",
+    "footer.bottomNote": "Dibuat dengan ide dan tujuan",
+    "footer.findLink": "Temukan kami"
   },
   projects: [
     {
@@ -94,7 +168,8 @@ const defaults = {
       title: "Built for what’s next",
       type: "Web development / 2025"
     }
-  ]
+  ],
+  pages: []
 };
 
 const clone = (value) => JSON.parse(JSON.stringify(value));
@@ -109,22 +184,53 @@ let state = clone(defaults);
 const yearElement = document.querySelector("#year");
 if (yearElement) yearElement.textContent = new Date().getFullYear();
 
-const themeSelect = document.querySelector(".theme-select");
-if (themeSelect) {
-  const themeColors = {
-    "soft-light": "#f4f1eb",
-    light: "#ffffff",
-    "soft-dark": "#292a27",
-    dark: "#171816"
-  };
-  const currentTheme = document.documentElement.dataset.theme || "soft-light";
-  themeSelect.value = currentTheme;
-  const themeColor = document.querySelector('meta[name="theme-color"]');
-  if (themeColor) themeColor.content = themeColors[currentTheme];
-  themeSelect.addEventListener("change", () => {
-    document.documentElement.dataset.theme = themeSelect.value;
-    localStorage.setItem("zefanya-theme", themeSelect.value);
-    if (themeColor) themeColor.content = themeColors[themeSelect.value];
+const themeColors = {
+  "soft-light": "#f4f1eb",
+  light: "#ffffff",
+  "soft-dark": "#292a27",
+  dark: "#171816"
+};
+const themeButtons = document.querySelectorAll("[data-theme-choice]");
+const themeColor = document.querySelector('meta[name="theme-color"]');
+const themeToggle = document.querySelector(".theme-toggle");
+const themeMenu = document.querySelector(".theme-menu");
+
+function setTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  localStorage.setItem("zefanya-theme", theme);
+  if (themeColor) themeColor.content = themeColors[theme];
+  themeButtons.forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.dataset.themeChoice === theme));
+  });
+  if (themeMenu) themeMenu.hidden = true;
+  if (themeToggle) themeToggle.setAttribute("aria-expanded", "false");
+}
+
+if (themeButtons.length) {
+  const currentTheme = Object.hasOwn(themeColors, document.documentElement.dataset.theme)
+    ? document.documentElement.dataset.theme
+    : "soft-light";
+  setTheme(currentTheme);
+  themeButtons.forEach((button) => {
+    button.addEventListener("click", () => setTheme(button.dataset.themeChoice));
+  });
+  themeToggle?.addEventListener("click", () => {
+    const isOpen = themeToggle.getAttribute("aria-expanded") === "true";
+    themeToggle.setAttribute("aria-expanded", String(!isOpen));
+    themeMenu.hidden = isOpen;
+  });
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest(".theme-control") && themeMenu) {
+      themeMenu.hidden = true;
+      themeToggle?.setAttribute("aria-expanded", "false");
+    }
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && themeMenu && !themeMenu.hidden) {
+      themeMenu.hidden = true;
+      themeToggle?.setAttribute("aria-expanded", "false");
+      themeToggle?.focus();
+    }
   });
 }
 
@@ -148,6 +254,22 @@ function applyContent() {
     const value = state.content[element.dataset.cms];
     if (typeof value === "string") element.textContent = value;
   });
+  document.querySelectorAll("[data-cms-src]").forEach((element) => {
+    const value = state.content[element.dataset.cmsSrc];
+    if (value) element.setAttribute("src", value);
+  });
+  document.querySelectorAll("[data-cms-alt]").forEach((element) => {
+    const value = state.content[element.dataset.cmsAlt];
+    if (typeof value === "string") element.setAttribute("alt", value);
+  });
+  document.querySelectorAll("[data-cms-title]").forEach((element) => {
+    const value = state.content[element.dataset.cmsTitle];
+    if (typeof value === "string") element.setAttribute("title", value);
+  });
+  document.querySelectorAll("[data-cms-aria-label]").forEach((element) => {
+    const value = state.content[element.dataset.cmsAriaLabel];
+    if (typeof value === "string") element.setAttribute("aria-label", value);
+  });
   document.querySelectorAll("[data-cms-href]").forEach((element) => {
     const value = state.content[element.dataset.cmsHref];
     if (value) element.setAttribute("href", value);
@@ -161,6 +283,24 @@ function applyContent() {
     } else {
       element.setAttribute("href", `https://www.google.com/maps/search/?api=1&query=Zefanya%20Digital%20Work%2C%20${query}`);
     }
+  });
+}
+
+function applyPageNavigation(pages) {
+  const nav = document.querySelector("#main-navigation");
+  if (!nav) return;
+
+  nav.querySelectorAll("[data-cms-page-link]").forEach((link) => link.remove());
+  const contactLink = nav.querySelector(".nav-contact");
+  pages.forEach((page) => {
+    const link = document.createElement("a");
+    link.dataset.cmsPageLink = page.slug;
+    link.href = `page.html?slug=${encodeURIComponent(page.slug)}`;
+    link.textContent = page.title;
+    if (new URLSearchParams(window.location.search).get("slug") === page.slug) {
+      link.setAttribute("aria-current", "page");
+    }
+    nav.insertBefore(link, contactLink || null);
   });
 }
 
@@ -182,20 +322,23 @@ async function load() {
     throw new Error("Supabase belum dikonfigurasi. Isi VITE_SUPABASE_URL dan VITE_SUPABASE_ANON_KEY.");
   }
 
-  const [contentResult, projectResult, slideResult] = await Promise.all([
+  const [contentResult, projectResult, slideResult, pageResult] = await Promise.all([
     supabaseClient.from("site_content").select("key,value"),
     supabaseClient.from("projects").select("id,title,category,description,copy,image,alt,gallery,sort_order").order("sort_order"),
-    supabaseClient.from("home_slides").select("id,image,alt,label,title,type,sort_order").order("sort_order")
+    supabaseClient.from("home_slides").select("id,image,alt,label,title,type,sort_order").order("sort_order"),
+    supabaseClient.from("custom_pages").select("slug,title,description,body,image,alt,sort_order").order("sort_order")
   ]);
-  const failure = contentResult.error || projectResult.error || slideResult.error;
+  const failure = contentResult.error || projectResult.error || slideResult.error || pageResult.error;
   if (failure) throw failure;
 
   state = {
     content: { ...defaults.content, ...Object.fromEntries(contentResult.data.map((item) => [item.key, item.value])) },
     projects: projectResult.data.map(({ sort_order, ...project }) => project),
-    slides: slideResult.data.map(({ sort_order, ...slide }) => slide)
+    slides: slideResult.data.map(({ sort_order, ...slide }) => slide),
+    pages: pageResult.data.map(({ sort_order, ...page }) => page)
   };
   applyContent();
+  applyPageNavigation(state.pages);
   return clone(state);
 }
 
@@ -236,6 +379,21 @@ async function deleteSlide(id) {
   await load();
 }
 
+async function savePage(page) {
+  const client = requireClient();
+  const index = state.pages.findIndex((item) => item.slug === page.slug);
+  const sort_order = index >= 0 ? index : state.pages.length;
+  const { error } = await client.from("custom_pages").upsert({ ...page, sort_order });
+  if (error) throw error;
+  await load();
+}
+
+async function deletePage(slug) {
+  const { error } = await requireClient().from("custom_pages").delete().eq("slug", slug);
+  if (error) throw error;
+  await load();
+}
+
 async function saveContent(content) {
   const entries = Object.entries(content).map(([key, value]) => ({ key, value }));
   const { error } = await requireClient().from("site_content").upsert(entries);
@@ -248,6 +406,9 @@ async function replaceAll(nextState) {
   const contentEntries = Object.entries(nextState.content).map(([key, value]) => ({ key, value }));
   const projectRows = nextState.projects.map((project, sort_order) => ({ ...project, sort_order }));
   const slideRows = nextState.slides.map((slide, sort_order) => ({ ...slide, sort_order }));
+  const pageRows = Array.isArray(nextState.pages)
+    ? nextState.pages.map((page, sort_order) => ({ ...page, sort_order }))
+    : null;
 
   const contentResult = await client.from("site_content").upsert(contentEntries);
   if (contentResult.error) throw contentResult.error;
@@ -269,6 +430,17 @@ async function replaceAll(nextState) {
     ? await client.from("home_slides").delete().not("id", "in", `(${slideIds.map((id) => `"${id.replace(/"/g, '\\"')}"`).join(",")})`)
     : await client.from("home_slides").delete().gte("sort_order", 0);
   if (slideDelete.error) throw slideDelete.error;
+  if (pageRows) {
+    if (pageRows.length) {
+      const pageResult = await client.from("custom_pages").upsert(pageRows);
+      if (pageResult.error) throw pageResult.error;
+    }
+    const pageSlugs = pageRows.map((page) => page.slug);
+    const pageDelete = pageSlugs.length
+      ? await client.from("custom_pages").delete().not("slug", "in", `(${pageSlugs.map((slug) => `"${slug.replace(/"/g, '\\"')}"`).join(",")})`)
+      : await client.from("custom_pages").delete().gte("sort_order", 0);
+    if (pageDelete.error) throw pageDelete.error;
+  }
   await load();
 }
 
@@ -280,6 +452,8 @@ export const SiteCMS = {
   deleteProject,
   saveSlide,
   deleteSlide,
+  savePage,
+  deletePage,
   saveContent,
   replaceAll,
   showPublicError,

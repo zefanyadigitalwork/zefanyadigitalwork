@@ -11,7 +11,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "check": "node --check site.js && node --check script.js && node --check project.js && node --check projects.js && node --check public-page.js && node --check admin.js && node --check vite.config.js"
+    "check": "node --check site.js && node --check script.js && node --check project.js && node --check projects.js && node --check public-page.js && node --check custom-page.js && node --check admin.js && node --check vite.config.js"
   },
   "devDependencies": {
     "@supabase/supabase-js": "^2.118.0",

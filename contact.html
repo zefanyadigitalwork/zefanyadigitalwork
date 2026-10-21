@@ -15,44 +15,54 @@
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="index.html" aria-label="Zefanya Digital Work, beranda"><img class="brand-logo" src="public/img/zefanyalogo.png" alt="Zefanya Digital Work"><span class="brand-caption"><i></i> Creative studio · Bekasi</span></a>
-      <button class="menu-toggle" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="main-navigation"><span></span><span></span><span class="menu-label">Menu</span></button>
-      <nav class="main-nav" id="main-navigation" aria-label="Navigasi utama">
-        <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Project</a><a class="nav-contact" href="contact.html" aria-current="page">Let's talk <span>↗</span></a>
-        <label class="theme-control"><span>Tema</span><select class="theme-select" aria-label="Pilih tema tampilan"><option value="soft-light">Soft light</option><option value="light">Light</option><option value="soft-dark">Soft dark</option><option value="dark">Dark</option></select></label>
+      <a class="brand" href="index.html" aria-label="Zefanya Digital Work, beranda"><img class="brand-logo" src="public/img/zefanyalogo.png" alt="Zefanya Digital Work" data-cms-src="header.logo" data-cms-alt="header.logoAlt"><span class="brand-caption"><i></i> <span data-cms="header.caption">Creative studio · Bekasi</span></span></a>
+      <button class="menu-toggle" type="button" aria-label="Buka menu" data-cms-aria-label="header.menuLabel" aria-expanded="false" aria-controls="main-navigation"><span></span><span></span><span class="menu-label" data-cms="header.menuLabel">Menu</span></button>
+      <nav class="main-nav" id="main-navigation" aria-label="Navigasi utama" data-cms-aria-label="header.navLabel">
+        <a href="index.html" data-cms="header.home">Home</a><a href="about.html" data-cms="header.about">About</a><a href="projects.html" data-cms="header.projects">Project</a><a class="nav-contact" href="contact.html" aria-current="page"><span data-cms="header.contact">Let's talk</span> <span>↗</span></a>
+        <div class="theme-control">
+          <button class="theme-toggle" type="button" aria-label="Pilih tema" aria-expanded="false" aria-controls="theme-menu">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18h1.2a2 2 0 0 0 1.5-3.3 1.5 1.5 0 0 1 1.1-2.5H18a3 3 0 0 0 3-3c0-5.1-4-9.2-9-9.2Z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7.5" r="1"/><circle cx="14.5" cy="7.5" r="1"/><circle cx="17" cy="11" r="1"/></svg>
+          </button>
+          <div class="theme-menu" id="theme-menu" role="group" aria-label="Pilihan tema" hidden>
+            <button class="theme-option" type="button" data-theme-choice="soft-light" aria-pressed="false"><span aria-hidden="true">☼</span> Soft light</button>
+            <button class="theme-option" type="button" data-theme-choice="light" aria-pressed="false"><span aria-hidden="true">☀</span> Light</button>
+            <button class="theme-option" type="button" data-theme-choice="soft-dark" aria-pressed="false"><span aria-hidden="true">◐</span> Soft dark</button>
+            <button class="theme-option" type="button" data-theme-choice="dark" aria-pressed="false"><span aria-hidden="true">☾</span> Dark</button>
+          </div>
+        </div>
       </nav>
     </header>
     <main class="contact-page">
       <section class="page-hero section-wrap">
-        <p class="eyebrow"><span class="eyebrow-line"></span> Mari mulai sesuatu</p>
-        <h1>Ada ide?<br><em>Kami siap.</em></h1>
+        <p class="eyebrow"><span class="eyebrow-line"></span> <span data-cms="contact.eyebrow">Mari mulai sesuatu</span></p>
+        <h1><span data-cms="contact.headingLead">Ada ide?</span><br><em data-cms="contact.headingAccent">Kami siap.</em></h1>
         <p class="page-lead" data-cms="contact.lead">Ceritakan apa yang sedang Anda rencanakan. Kami akan membantu menemukan cara terbaik untuk mewujudkannya.</p>
       </section>
       <section class="contact section-wrap">
         <div class="contact-main">
           <div class="contact-copy">
-            <p class="eyebrow"><span class="eyebrow-line"></span> Kontak kami</p>
+            <p class="eyebrow"><span class="eyebrow-line"></span> <span data-cms="contact.sectionEyebrow">Kontak kami</span></p>
             <a class="contact-email" href="mailto:Creativestech79@gmail.com" data-cms-href="contact.emailHref"><span data-cms="contact.email">Creativestech79@gmail.com</span> <span>↗</span></a>
             <div class="contact-details">
-              <div><span>WHATSAPP SAJA</span><a href="https://wa.me/6285162744708" data-cms-href="contact.whatsappLink" target="_blank" rel="noopener noreferrer"><span data-cms="contact.phone">0851 6274 4708</span> ↗</a></div>
-              <div><span>LOKASI</span><p data-cms="contact.address">Jl. H. Abdullah No.77, RT.01, RW.05, Kelurahan Jatikramat, Kecamatan Jatiasih, Bekasi 17421</p></div>
+              <div><span data-cms="contact.whatsappLabel">WHATSAPP SAJA</span><a href="https://wa.me/6285162744708" data-cms-href="contact.whatsappLink" target="_blank" rel="noopener noreferrer"><span data-cms="contact.phone">0851 6274 4708</span> ↗</a></div>
+              <div><span data-cms="contact.locationLabel">LOKASI</span><p data-cms="contact.address">Jl. H. Abdullah No.77, RT.01, RW.05, Kelurahan Jatikramat, Kecamatan Jatiasih, Bekasi 17421</p></div>
             </div>
           </div>
           <div class="map-frame">
-            <iframe data-cms-map="contact.address" title="Peta lokasi Zefanya Digital Work di Jatikramat, Bekasi" src="https://maps.google.com/maps?q=Jl.%20H.%20Abdullah%20No.77%2C%20RT.01%2C%20RW.05%2C%20Kelurahan%20Jatikramat%2C%20Kecamatan%20Jatiasih%2C%20Bekasi%2017421&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <a class="map-label" data-cms-map="contact.address" href="https://www.google.com/maps/search/?api=1&amp;query=Zefanya%20Digital%20Work%2C%20Jl.%20H.%20Abdullah%20No.77%2C%20RT.01%2C%20RW.05%2C%20Kelurahan%20Jatikramat%2C%20Kecamatan%20Jatiasih%2C%20Bekasi%2017421" target="_blank" rel="noopener noreferrer"><span class="map-dot"></span> Zefanya Digital Work <span>↗</span></a>
+            <iframe data-cms-map="contact.address" title="Peta lokasi Zefanya Digital Work di Jatikramat, Bekasi" data-cms-title="contact.mapTitle" src="https://maps.google.com/maps?q=Jl.%20H.%20Abdullah%20No.77%2C%20RT.01%2C%20RW.05%2C%20Kelurahan%20Jatikramat%2C%20Kecamatan%20Jatiasih%2C%20Bekasi%2017421&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <a class="map-label" data-cms-map="contact.address" href="https://www.google.com/maps/search/?api=1&amp;query=Zefanya%20Digital%20Work%2C%20Jl.%20H.%20Abdullah%20No.77%2C%20RT.01%2C%20RW.05%2C%20Kelurahan%20Jatikramat%2C%20Kecamatan%20Jatiasih%2C%20Bekasi%2017421" target="_blank" rel="noopener noreferrer"><span class="map-dot"></span> <span data-cms="contact.mapLabel">Zefanya Digital Work</span> <span>↗</span></a>
           </div>
         </div>
       </section>
     </main>
     <footer class="site-footer">
-      <div class="footer-cta"><div><span class="footer-kicker"><i></i> Punya project dalam pikiran?</span><h2>Mari wujudkan <em data-cms="footer.cta">bersama.</em></h2></div><a class="footer-cta-button" href="https://wa.me/6285162744708" data-cms-href="contact.whatsappLink" target="_blank" rel="noopener noreferrer">Ngobrol via WhatsApp <span>↗</span></a></div>
+      <div class="footer-cta"><div><span class="footer-kicker"><i></i> <span data-cms="footer.kicker">Punya project dalam pikiran?</span></span><h2><span data-cms="footer.ctaHeading">Mari wujudkan</span> <em data-cms="footer.cta">bersama.</em></h2></div><a class="footer-cta-button" href="https://wa.me/6285162744708" data-cms-href="contact.whatsappLink" target="_blank" rel="noopener noreferrer"><span data-cms="footer.whatsappLink">Ngobrol via WhatsApp</span> <span>↗</span></a></div>
       <div class="footer-main">
-        <div class="footer-about"><a class="brand footer-brand" href="index.html"><img class="brand-logo" src="public/img/zefanyalogo.png" alt="Zefanya Digital Work"></a><p data-cms="footer.about">Ide baik layak diwujudkan dengan baik. Kami siap membantu bisnis Anda melangkah lebih jauh.</p></div>
-        <div class="footer-links"><span class="footer-label">JELAJAHI</span><a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Project</a><a href="contact.html">Contact</a></div>
-        <div class="footer-contact"><span class="footer-label">SAPA KAMI</span><a href="mailto:Creativestech79@gmail.com" data-cms-href="contact.emailHref"><span data-cms="contact.email">Creativestech79@gmail.com</span> ↗</a><a href="https://wa.me/6285162744708" data-cms-href="contact.whatsappLink" target="_blank" rel="noopener noreferrer"><span data-cms="contact.phone">0851 6274 4708</span> · WhatsApp ↗</a><p data-cms="contact.address">Jatikramat, Jatiasih Bekasi 17421</p></div>
+        <div class="footer-about"><a class="brand footer-brand" href="index.html"><img class="brand-logo" src="public/img/zefanyalogo.png" alt="Zefanya Digital Work" data-cms-src="header.logo" data-cms-alt="header.logoAlt"></a><p data-cms="footer.about">Ide baik layak diwujudkan dengan baik. Kami siap membantu bisnis Anda melangkah lebih jauh.</p></div>
+        <div class="footer-links"><span class="footer-label" data-cms="footer.exploreLabel">JELAJAHI</span><a href="index.html" data-cms="footer.homeLink">Home</a><a href="about.html" data-cms="footer.aboutLink">About</a><a href="projects.html" data-cms="footer.projectsLink">Project</a><a href="contact.html" data-cms="footer.contactLink">Contact</a></div>
+        <div class="footer-contact"><span class="footer-label" data-cms="footer.contactLabel">SAPA KAMI</span><a href="mailto:Creativestech79@gmail.com" data-cms-href="contact.emailHref"><span data-cms="contact.email">Creativestech79@gmail.com</span> ↗</a><a href="https://wa.me/6285162744708" data-cms-href="contact.whatsappLink" target="_blank" rel="noopener noreferrer"><span data-cms="contact.phone">0851 6274 4708</span> · WhatsApp ↗</a><p data-cms="contact.address">Jatikramat, Jatiasih Bekasi 17421</p></div>
       </div>
-      <div class="footer-bottom"><span>© <span id="year"></span> Zefanya Digital Work</span><span>Dibuat dengan ide dan tujuan <b>✳</b></span><a href="contact.html">Temukan kami <span>↗</span></a></div>
+      <div class="footer-bottom"><span>© <span id="year"></span> Zefanya Digital Work</span><span><span data-cms="footer.bottomNote">Dibuat dengan ide dan tujuan</span> <b>✳</b></span><a href="contact.html"><span data-cms="footer.findLink">Temukan kami</span> <span>↗</span></a></div>
     </footer>
   </body>
 </html>

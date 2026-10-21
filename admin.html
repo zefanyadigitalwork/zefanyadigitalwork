@@ -38,9 +38,16 @@
         </a>
         <nav class="admin-nav" aria-label="Menu admin">
           <button class="admin-nav-item active" data-panel="overview" type="button"><span>⌂</span> Ringkasan</button>
-          <button class="admin-nav-item" data-panel="projects" type="button"><span>▦</span> Project</button>
+          <button class="admin-nav-item" data-panel="home" type="button"><span>⌂</span> Halaman Home</button>
+          <button class="admin-nav-item" data-panel="about" type="button"><span>◉</span> Halaman About</button>
+          <button class="admin-nav-item" data-panel="project-page" type="button"><span>▦</span> Halaman Project</button>
+          <button class="admin-nav-item" data-panel="contact" type="button"><span>✉</span> Halaman Contact</button>
+          <button class="admin-nav-item" data-panel="project-detail" type="button"><span>↗</span> Detail Project</button>
+          <button class="admin-nav-item" data-panel="header" type="button"><span>▤</span> Header</button>
+          <button class="admin-nav-item" data-panel="footer" type="button"><span>▱</span> Footer</button>
+          <button class="admin-nav-item" data-panel="projects" type="button"><span>▦</span> Data project</button>
           <button class="admin-nav-item" data-panel="slides" type="button"><span>◫</span> Slide beranda</button>
-          <button class="admin-nav-item" data-panel="content" type="button"><span>≡</span> Konten halaman</button>
+          <button class="admin-nav-item" data-panel="pages" type="button"><span>▤</span> Halaman tambahan</button>
         </nav>
         <div class="sidebar-bottom">
           <a href="index.html">← Lihat website</a>
@@ -68,14 +75,14 @@
           <div class="stats-grid">
             <article class="stat-card"><span>PROJECT AKTIF</span><strong id="project-total">0</strong><small>Tampil di halaman Project</small></article>
             <article class="stat-card"><span>SLIDE BERANDA</span><strong id="slide-total">0</strong><small>Konten carousel halaman Home</small></article>
-            <article class="stat-card"><span>HALAMAN KONTEN</span><strong>4</strong><small>Home · About · Project · Contact</small></article>
+            <article class="stat-card"><span>HALAMAN TAMBAHAN</span><strong id="page-total">0</strong><small>Halaman yang dibuat dari portal admin</small></article>
           </div>
           <div class="overview-bottom">
             <article class="admin-card quick-actions">
               <span class="admin-kicker">AKSES CEPAT</span>
               <h3>Apa yang ingin Anda kelola?</h3>
               <button type="button" class="quick-action" data-open-panel="projects"><span>01</span><span><strong>Kelola project</strong><small>Tambah, edit, atau hapus item portfolio</small></span><b>↗</b></button>
-              <button type="button" class="quick-action" data-open-panel="content"><span>02</span><span><strong>Ubah teks halaman</strong><small>Perbarui copy, kontak, dan footer</small></span><b>↗</b></button>
+              <button type="button" class="quick-action" data-open-panel="home"><span>02</span><span><strong>Ubah halaman website</strong><small>Atur konten Home, About, Project, Contact, Header, dan Footer</small></span><b>↗</b></button>
             </article>
             <article class="admin-card backup-card">
               <span class="admin-kicker">DATA WEBSITE</span><h3>Backup konten</h3>
@@ -98,8 +105,13 @@
           <p class="empty-state admin-card" id="slide-empty" hidden>Belum ada slide. Tambahkan slide untuk mengisi carousel di halaman Home.</p>
         </section>
 
+        <section class="admin-panel" id="panel-pages">
+          <div class="panel-heading"><div><span class="admin-kicker">HALAMAN PUBLIK</span><h2>Halaman tambahan</h2><p>Buat, edit, atau hapus halaman publik khusus. Halaman bawaan website tetap tersedia.</p></div><button class="button button-dark" id="add-page" type="button">＋ Tambah halaman</button></div>
+          <div class="admin-card table-card"><div class="table-scroll"><table><thead><tr><th>HALAMAN</th><th>TAUTAN</th><th>AKSI</th></tr></thead><tbody id="page-rows"></tbody></table></div><p class="empty-state" id="page-empty" hidden>Belum ada halaman tambahan. Tambahkan halaman pertama Anda.</p></div>
+        </section>
+
         <section class="admin-panel" id="panel-content">
-          <div class="panel-heading"><div><span class="admin-kicker">PENGATURAN WEBSITE</span><h2>Konten halaman</h2><p>Perbarui teks dan informasi kontak yang dipakai di halaman publik.</p></div></div>
+          <div class="panel-heading"><div><span class="admin-kicker">PENGATURAN WEBSITE</span><h2 id="content-panel-title">Halaman Home</h2><p id="content-panel-description">Atur konten yang dipakai di halaman publik.</p></div></div>
           <form id="content-form" class="content-groups"></form>
           <div class="content-savebar"><span>Perubahan akan langsung digunakan oleh halaman publik di browser ini.</span><button class="button button-dark" type="submit" form="content-form">Simpan perubahan</button></div>
         </section>
@@ -125,6 +137,14 @@
           <label class="field full-field">Label slide<input id="slide-label" required maxlength="60" placeholder="Visual identity"></label>
           <label class="field full-field">Judul slide<input id="slide-title" required maxlength="90"></label>
           <label class="field full-field">Kategori / tahun<input id="slide-type" required maxlength="80" placeholder="Brand identity / 2025"></label>
+        </div>
+        <div class="form-grid" id="page-fields" hidden>
+          <label class="field full-field">Judul halaman<input id="field-page-title" required maxlength="80" placeholder="Tentang layanan kami"></label>
+          <label class="field full-field">Alamat halaman (slug)<input id="page-slug" required maxlength="80" pattern="[a-z0-9]+(-[a-z0-9]+)*" placeholder="tentang-layanan"><span class="field-hint">Gunakan huruf kecil, angka, dan tanda hubung.</span></label>
+          <label class="field full-field">Deskripsi singkat<textarea id="page-description" rows="2" maxlength="240" placeholder="Deskripsi untuk pengunjung dan mesin pencari"></textarea></label>
+          <label class="field full-field">Konten halaman<textarea id="page-body" required rows="7" maxlength="12000" placeholder="Tulis isi halaman. Pisahkan paragraf dengan baris kosong."></textarea></label>
+          <label class="field full-field">URL gambar (opsional)<input id="page-image" type="url" placeholder="https://..."></label>
+          <label class="field full-field">Teks alternatif gambar<input id="page-alt" maxlength="180" placeholder="Deskripsi singkat gambar"></label>
         </div>
         <p class="form-error" id="form-error" role="alert"></p>
         <div class="dialog-actions"><button class="button button-light" type="button" id="cancel-dialog">Batal</button><button class="button button-dark" type="submit" id="save-record">Simpan project</button></div>
